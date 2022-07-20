@@ -279,14 +279,46 @@
         <div class="star star-1"></div>
         <div class="message message-1"></div>
     </div> -->
+    
+    <div>
+        <div class="countBox">
+            <h1>랜덤 뽑기</h1>
+            <p class="countNumber">
+                ㅇㅇㅇㅇ최대 숫자 (10이상) &nbsp
+                <input id = 'inputtxt0' type="text" size="5px" value=""><br>
+                당첨번호 1
+                <input id = 'inputtxt1' type="text" size="5px" value=""><br>
+                <!-- <button id="btn1" onclick="">
+                    입력
+                </button><br> -->
+                당첨번호 2
+                <input id = 'inputtxt2' type="text" size="5px" value=""><br>
+                당첨번호 3
+                <input id = 'inputtxt3' type="text" size="5px" value=""><br>
+                당첨번호 4
+                <input id = 'inputtxt4' type="text" size="5px" value=""><br>
+                당첨번호 5
+                <input id = 'inputtxt5' type="text" size="5px" value=""><br>
+                당첨번호 6
+                <input id = 'inputtxt6' type="text" size="5px" value=""><br>
+
+            </p>
+            <div class="countButtonWrap">
+                <button id="btn1" onclick="btnclick()">
+                    치킨~~ 
+                </button>
+            </div>
+        </div>
+    </div>
     <div>
         <script>
             var printcnt = 0;
             let outlotto = [];
+            // 랜덤함수추출
             function ranNum(min, max){
                 let lotto = [];
                 let i = 0;
-                while (i < 10){
+                while (i < max){
                     let n = Math.floor(Math.random() * max) + min;
                     if (! sameNum(n)) {
                         lotto.push(n);
@@ -298,60 +330,23 @@
                 }
                 return lotto;
             }
-            outlotto = ranNum(1, 10);
-            document.write("<br>");
-            
-            var inpbox = document.getElementById('inputtxt0');
-            document.write(inpbox);
 
             function btnclick(){
-                // document.write(outlotto[printcnt]);
-                alert(outlotto[printcnt]);
-                printcnt++;
-                if(printcnt = max){
-                    printcnt = "끝";
+                if(printcnt == 0){
+                    //최대값 입력받기
+                    outlotto = ranNum(1, parseInt(document.getElementById('inputtxt0').value));
                 }
-                // for(let num in outlotto){
-                    // document.write("test");
-                    // document.write(outlotto[num]);
-                // }
+                if(outlotto[printcnt] == document.getElementById('inputtxt1').value){
+                    alert(parseInt(outlotto[printcnt]) + "  당첨~~");
+                }else{
+                    alert(parseInt(outlotto[printcnt]) + "  꽝ㅠㅠ");
+                }
+                // alert(outlotto);
+                printcnt++;
             }
             
         </script>
     </div>
-    <div>
-        <div class="countBox">
-            <h1>랜덤 뽑기</h1>
-            <p class="countNumber">
-                최대 숫자 &nbsp
-                <input id = 'inputtxt0' type="text" size="5px" value="10"><br>
-                당첨번호 1
-                <input id = 'inputtxt1' type="text" size="5px" value="2"><br>
-                <!-- <button id="btn1" onclick="">
-                    입력
-                </button><br> -->
-                당첨번호 2
-                <input id = 'inputtxt2' type="text" size="5px" value="4"><br>
-                당첨번호 3
-                <input id = 'inputtxt3' type="text" size="5px" value="5"><br>
-                당첨번호 4
-                <input id = 'inputtxt4' type="text" size="5px" value="8"><br>
-                당첨번호 5
-                <input id = 'inputtxt5' type="text" size="5px" value="9"><br>
-                당첨번호 6
-                <input id = 'inputtxt6' type="text" size="5px" value="10"><br>
-
-            </p>
-            <div class="countButtonWrap">
-                <button id="btn1" onclick="alert(btnclick())">
-                    치킨~~ 
-                </button>
-            </div>
-        </div>
-    </div>
-    <!-- <div id="daepo">
-        <div><img src="C:\git\뽑기프로그램\대포.jpg"></div>
-    </div> -->
     
 </body>
 </html>
