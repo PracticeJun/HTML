@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>random_sejong_ver</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+    <style>
+        #wrapper {
+        background:#4374D9;
+        width:500px;
+        height:500px;
+        float: left;
+        }
+
+        .clip {
+        width:150px;
+        height:150px;
+        position:absolute;
+        top:170px;
+        left:170px;
+        transition:.5s;
+        transition-timing-function:ease-in-out;
+        z-index:100;
+        background:#3DB7CC;
+        }
+
+        .clip-top {
+        clip-path: polygon(50% 50%, 0 0, 100% 0);
+        animation:clip-top 2.5s infinite cubic-bezier(0.415, 0.547, 0, 0.809);
+        }
+
+        .clip-left {
+        clip-path: polygon(50% 50%, 0 0, 0 100%);
+        animation:clip-left 2.5s infinite cubic-bezier(0.415, 0.547, 0, 0.809);
+        }
+
+        .clip-right {
+        clip-path: polygon(50% 50%, 100% 0, 100% 100%);
+        animation:clip-right 2.5s infinite cubic-bezier(0.415, 0.547, 0, 0.809);
+        }
+
+        .clip-bottom {
+        clip-path: polygon(50% 50%, 0 100%, 100% 100%);
+        animation:clip-bottom 2.5s infinite cubic-bezier(0.415, 0.547, 0, 0.809);
+        }
+
+        .square, .circle, .triangle, .close, .star, .message {
+        position:absolute;
+        }
+
+        .circle {
+        border-radius:50%;
+        }
+
+        .square-1 {
+        width:30px;
+        height:30px;
+        top:225px;
+        left:225px;
+        border:5px solid #FFBB00;
+        /* 추가된 부분 */
+        animation:square-1 2.5s infinite cubic-bezier(0.415, 0.547, 0, 0.809);
+        }
+
+        .square-2 {
+        width:50px;
+        height:50px;
+        top:220px;
+        left:220px;
+        border:5px solid #FFBB00;
+        /* 추가된 부분 */
+        animation:square-2 2.5s infinite cubic-bezier(0.415, 0.547, 0, 0.809);
+        }
+
+        .circle-1 {
+        width:40px;
+        height:40px;
+        top:225px;
+        left:215px;
+        background:#5853EB;
+        /* 추가된 부분 */
+        animation:circle-1 2.5s infinite cubic-bezier(0.415, 0.547, 0, 0.809);
+        }
+
+        .triangle-1 {
+        width:40px;
+        height:40px;
+        top:220px;
+        left:225px;
+        background:#FF2424;
+        clip-path: polygon(50% 0%, 0 100%, 100% 100%);
+        /* 추가된 부분 */
+        animation:triangle-1 2.5s infinite cubic-bezier(0.415, 0.547, 0, 0.809);
+        }
+
+        .close-1 {
+        width:35px;
+        height:35px;
+        top:220px;
+        left:220px;
+        background:#41AF39;
+        clip-path: polygon(20% 0%, 0% 20%, 30% 50%, 0% 80%, 20% 100%, 50% 70%, 80% 100%, 100% 80%, 70% 50%, 100% 20%, 80% 0%, 50% 30%);
+        /* 추가된 부분 */
+        animation:close-1 2.5s infinite cubic-bezier(0.415, 0.547, 0, 0.809);
+        }
+
+        .star-1 {
+        width:25px;
+        height:25px;
+        top:230px;
+        left:225px;
+        background:#FF5E00;
+        clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+        /* 추가된 부분 */
+        animation:star-1 2.5s infinite cubic-bezier(0.415, 0.547, 0, 0.809);
+        }
+
+        .message-1 {
+        width:35px;
+        height:35px;
+        top:230px;
+        left:220px;
+        background:#990085;
+        clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%);
+        /* 추가된 부분 */
+        animation:message-1 2.5s infinite cubic-bezier(0.415, 0.547, 0, 0.809);
+        }
+
+        @keyframes clip-top {
+        0% {transform:translateY(0px)}
+        50% {transform:translateY(-150px)}
+        100% {transform:translateY(0px)}
+        }
+
+        @keyframes clip-left {
+        0% {transform:translateX(0px)}
+        50% {transform:translateX(-150px)}
+        100% {transform:translateX(0px)}
+        }
+
+        @keyframes clip-right {
+        0% {transform:translateX(0px)}
+        50% {transform:translateX(150px)}
+        100% {transform:translateX(0px)}
+        }
+
+        @keyframes clip-bottom {
+        0% {transform:translateY(0px)}
+        50% {transform:translateY(150px)}
+        100% {transform:translateY(0px)}
+        }
+
+        /* 추가된 부분 */
+        @keyframes square-1 {
+        0% {transform:translateX(0) translateY(0) scale(0) rotateZ(0)}
+        50% {transform:translateX(-50px) translateY(50px) scale(1) rotateZ(90deg)}
+        100% {transform:translateX(0) translateY(0) scale(0) rotateZ(0)}
+        }
+
+        /* 추가된 부분 */
+        @keyframes square-2 {
+        0% {transform:translateX(0) translateY(0) scale(0) rotateZ(0)}
+        50% {transform:translateX(-80px) translateY(-60px) scale(1) rotateZ(135deg)}
+        100% {transform:translateX(0) translateY(0) scale(0) rotateZ(0)}
+        }
+
+        /* 추가된 부분 */
+        @keyframes circle-1 {
+        0% {transform:translateX(0) translateY(0) scale(0)}
+        50% {transform:translateX(70px) translateY(-80px) scale(1)}
+        100% {transform:translateX(0) translateY(0) scale(0)}
+        }
+
+        /* 추가된 부분 */
+        @keyframes triangle-1 {
+        0% {transform:translateX(0) translateY(0) scale(0) rotateZ(0)}
+        50% {transform:translateX(-100px) translateY(140px) scale(1) rotateZ(-90deg)}
+        100% {transform:translateX(0) translateY(0) scale(0) rotateZ(0)}
+        }
+
+        /* 추가된 부분 */
+        @keyframes close-1 {
+        0% {transform:translateX(0) translateY(0) scale(0) rotateZ(0)}
+        50% {transform:translateX(100px) translateY(140px) scale(1) rotateZ(-270deg)}
+        100% {transform:translateX(0) translateY(0) scale(0) rotateZ(0)}
+        }
+
+        /* 추가된 부분 */
+        @keyframes star-1 {
+        0% {transform:translateX(0) translateY(0) scale(0) rotateZ(0)}
+        50% {transform:translateX(60px) translateY(70px) scale(1) rotateZ(155deg)}
+        100% {transform:translateX(0) translateY(0) scale(0) rotateZ(0)}
+        }
+
+        /* 추가된 부분 */
+        @keyframes message-1 {
+        0% {transform:translateX(0) scale(0) rotateZ(0)}
+        50% {transform:translateX(70px) scale(1) rotateZ(-360deg)}
+        100% {transform:translateX(0) scale(0) rotateZ(0)}
+        }
+
+        #daepo{
+            float: right;
+            border:5px solid gray;
+        }
+
+        .button {
+            width:300px;
+            height:70px;
+            top:225px;
+            left:225px;
+            border:5px solid #FFBB00;
+            font-size: 30px;
+        }
+        h1 {
+            color: #ffffff;
+            font-size: 20px;
+        }
+        .countBox {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            padding: 20px 50px;
+            box-sizing: border-box;
+            background-color: #ffaaaa;
+            border-radius: 10px;
+            box-shadow: 1px 1px 15px #ff9999;
+            width: 100%;
+            max-width: 360px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+        .countNumber {
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+            margin: 10px 0;
+        }
+        .countButtonWrap > button {
+            color: white;
+            font-weight: bold;
+            border-radius: 5px;
+            background-color: #ff8888;
+            padding: 5px 10px;
+        }
+        .countButtonWrap > button:hover {
+            color: #ff8888;
+            background-color: white;
+            transition: all ease 0.3s
+        }
+    </style>
+    
+</head>
+<!-- 당첨번호 입력받고 -->
+<!-- 전체개수 지정하고 -->
+<!-- 일치여부 확인 -->
+<body>
+    <h1>
+        <!-- 세종병원 뽑기 시간! -->
+    </h1>
+
+    <!-- <div id="wrapper">
+        <div class="clip clip-top"></div>
+        <div class="clip clip-left"></div>
+        <div class="clip clip-right"></div>
+        <div class="clip clip-bottom"></div>
+        
+        <div class="square square-1"></div>
+        <div class="square square-2"></div>
+        <div class="circle circle-1"></div>
+        <div class="triangle triangle-1"></div>
+        <div class="close close-1"></div>
+        <div class="star star-1"></div>
+        <div class="message message-1"></div>
+    </div> -->
+    <div>
+        <script>
+            var printcnt = 0;
+            let outlotto = [];
+            function ranNum(min, max){
+                let lotto = [];
+                let i = 0;
+                while (i < 10){
+                    let n = Math.floor(Math.random() * max) + min;
+                    if (! sameNum(n)) {
+                        lotto.push(n);
+                        i++;
+                    }
+                }
+                function sameNum (n) {
+                    return lotto.find((e) => (e === n));
+                }
+                return lotto;
+            }
+            outlotto = ranNum(1, 10);
+            document.write("<br>");
+            
+            var inpbox = document.getElementById('inputtxt0');
+            document.write(inpbox);
+
+            function btnclick(){
+                // document.write(outlotto[printcnt]);
+                alert(outlotto[printcnt]);
+                printcnt++;
+                if(printcnt = max){
+                    printcnt = "끝";
+                }
+                // for(let num in outlotto){
+                    // document.write("test");
+                    // document.write(outlotto[num]);
+                // }
+            }
+            
+        </script>
+    </div>
+    <div>
+        <div class="countBox">
+            <h1>랜덤 뽑기</h1>
+            <p class="countNumber">
+                최대 숫자 &nbsp
+                <input id = 'inputtxt0' type="text" size="5px" value="10"><br>
+                당첨번호 1
+                <input id = 'inputtxt1' type="text" size="5px" value="2"><br>
+                <!-- <button id="btn1" onclick="">
+                    입력
+                </button><br> -->
+                당첨번호 2
+                <input id = 'inputtxt2' type="text" size="5px" value="4"><br>
+                당첨번호 3
+                <input id = 'inputtxt3' type="text" size="5px" value="5"><br>
+                당첨번호 4
+                <input id = 'inputtxt4' type="text" size="5px" value="8"><br>
+                당첨번호 5
+                <input id = 'inputtxt5' type="text" size="5px" value="9"><br>
+                당첨번호 6
+                <input id = 'inputtxt6' type="text" size="5px" value="10"><br>
+
+            </p>
+            <div class="countButtonWrap">
+                <button id="btn1" onclick="alert(btnclick())">
+                    치킨~~ 
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- <div id="daepo">
+        <div><img src="C:\git\뽑기프로그램\대포.jpg"></div>
+    </div> -->
+    
+</body>
+</html>
