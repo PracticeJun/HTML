@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>random_sejong_ver</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+    <style>
+        
+        h1 {
+            color: #ffffff;
+            font-size: 20px;
+        }
+        .countBox {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            padding: 20px 50px;
+            box-sizing: border-box;
+            background-color: #ffaaaa;
+            border-radius: 10px;
+            box-shadow: 1px 1px 15px #ff9999;
+            width: 100%;
+            max-width: 360px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+        .countNumber {
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+            margin: 10px 0;
+        }
+        .countButtonWrap > button {
+            color: white;
+            font-weight: bold;
+            border-radius: 5px;
+            background-color: #ff8888;
+            padding: 5px 10px;
+        }
+        .countButtonWrap > button:hover {
+            color: #ff8888;
+            background-color: white;
+            transition: all ease 0.3s
+        }
+    </style>
+    
+</head>
+<!-- 당첨번호 입력받고 -->
+<!-- 전체개수 지정하고 -->
+<!-- 일치여부 확인 -->
+<body>
+    <h1>
+        <!-- 세종병원 뽑기 시간! -->
+    </h1>
+
+    <!-- <div id="wrapper">
+        <div class="clip clip-top"></div>
+        <div class="clip clip-left"></div>
+        <div class="clip clip-right"></div>
+        <div class="clip clip-bottom"></div>
+        
+        <div class="square square-1"></div>
+        <div class="square square-2"></div>
+        <div class="circle circle-1"></div>
+        <div class="triangle triangle-1"></div>
+        <div class="close close-1"></div>
+        <div class="star star-1"></div>
+        <div class="message message-1"></div>
+    </div> -->
+    
+    <div>
+        <div class="countBox">
+            <h1>랜덤 뽑기</h1>
+            <p class="countNumber">
+                최대 숫자 &nbsp
+                <input id = 'inputtxt0' type="text" size="5px" value=""><br>
+                당첨번호 1
+                <input id = 'inputtxt1' type="text" size="5px" value=""><br>
+                <!-- <button id="btn1" onclick="">
+                    입력
+                </button><br> -->
+                당첨번호 2
+                <input id = 'inputtxt2' type="text" size="5px" value=""><br>
+                당첨번호 3
+                <input id = 'inputtxt3' type="text" size="5px" value=""><br>
+                당첨번호 4
+                <input id = 'inputtxt4' type="text" size="5px" value=""><br>
+                당첨번호 5
+                <input id = 'inputtxt5' type="text" size="5px" value=""><br>
+                당첨번호 6
+                <input id = 'inputtxt6' type="text" size="5px" value=""><br>
+
+            </p>
+            <div class="countButtonWrap">
+                <button id="btn1" onclick="btnclick()">
+                    치킨~~ 
+                </button>
+            </div>
+        </div>
+    </div>
+    <div>
+        <script>
+            var printcnt = 0;
+            let outlotto = [];
+            // 랜덤함수추출
+            function ranNum(min, max){
+                let lotto = [];
+                let i = 0;
+                while (i < max){
+                    let n = Math.floor(Math.random() * max) + min;
+                    if (! sameNum(n)) {
+                        lotto.push(n);
+                        i++;
+                    }
+                }
+                function sameNum (n) {
+                    return lotto.find((e) => (e === n));
+                }
+                return lotto;
+            }
+
+            function btnclick(){
+                if(printcnt == 0){
+                    //최대값 입력받기
+                    outlotto = ranNum(1, parseInt(document.getElementById('inputtxt0').value));
+                }
+                if( (outlotto[printcnt] == document.getElementById('inputtxt1').value) ||
+                    (outlotto[printcnt] == document.getElementById('inputtxt2').value) ||
+                    (outlotto[printcnt] == document.getElementById('inputtxt3').value) ||
+                    (outlotto[printcnt] == document.getElementById('inputtxt4').value) ||
+                    (outlotto[printcnt] == document.getElementById('inputtxt5').value) ||
+                    (outlotto[printcnt] == document.getElementById('inputtxt6').value) )
+                {
+                    alert(parseInt(outlotto[printcnt]) + "  당첨~~");
+                }else{
+                    alert(parseInt(outlotto[printcnt]) + "  꽝ㅠㅠ");
+                }
+                // alert(outlotto);
+                printcnt++;
+            }
+            
+        </script>
+    </div>
+    
+</body>
+</html>
