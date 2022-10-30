@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>random_sejong_ver</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <!-- <link rel='stylesheet' type='text/css' media='screen' href='main.css'> -->
+    <!-- <script src='main.js'></script> -->
+    <style>
+        
+        h1 {
+            color: #ffffff;
+            font-size: 20px;
+        }
+        h2 {
+            color: #ffffff;
+            font-size: 20px;
+            text-align: left;
+        }
+        .countBox {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            padding: 20px 50px;
+            box-sizing: border-box;
+            background-color: #ffaaaa;
+            border-radius: 10px;
+            box-shadow: 1px 1px 15px #ff9999;
+            width: 100%;
+            max-width: 360px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+        .countNumberText {
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+            margin: 10px 0;
+            text-align:right;
+            display: inline-block;
+        }
+        .countButtonWrap > button {
+            color: white;
+            font-weight: bold;
+            border-radius: 5px;
+            background-color: #ff8888;
+            padding: 5px 10px;
+        }
+        .countButtonWrap > button:hover {
+            color: #ff8888;
+            background-color: white;
+            transition: all ease 0.3s
+        }
+        .countSubject {
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+            margin: 1px 0;
+            text-align:left;
+        }
+    </style>
+    
+</head>
+<!-- 당첨번호 입력받고 -->
+<!-- 전체개수 지정하고 -->
+<!-- 일치여부 확인 -->
+<body>
+    <h1>
+        <!-- 세종병원 뽑기 시간! -->
+    </h1>
+    
+    <div>
+        <div class="countBox">
+            <h1>
+                <center>♥ 푸름이가 선물드려요 ♥</center>
+            </h1>
+            <!-- <span class="countSubject">
+                대상인원
+            </span> -->
+            <p class="countNumberText">
+                대상인원 &ensp; &ensp; &ensp; &ensp; &ensp;
+                <input id = 'inputMaxNum' type="text" size="1px" value=""><br>
+                푸름이 인형 &ensp; &ensp;
+                <input id = 'inputtxt1' type="text" size="1px" value="">
+                <input id = 'inputtxt1-1' type="text" size="1px" value=""><br>
+                푸름이 키링 &ensp; &ensp;
+                <input id = 'inputtxt2' type="text" size="1px" value="" >
+                <input id = 'inputtxt2-1' type="text" size="1px" value=""><br>
+                푸름이 피규어 &nbsp;
+                <input id = 'inputtxt3' type="text" size="1px" value="">
+                <input id = 'inputtxt3-1' type="text" size="1px" value=""><br>
+                푸름이 그립톡 &nbsp;
+                <input id = 'inputtxt4' type="text" size="1px" value="">
+                <input id = 'inputtxt4-1' type="text" size="1px" value=""><br>
+                푸름이 스티커 &nbsp;
+                <input id = 'inputtxt5' type="text" size="1px" value="">
+                <input id = 'inputtxt5-1' type="text" size="1px" value=""><br>
+                꽝 &ensp; &ensp; &ensp; &ensp;
+                <input id = 'inputtxt6' type="text" size="1px" value="">
+                <input id = 'inputtxt6-1' type="text" size="1px" value=""><br>
+
+            </p>
+            <div class="countButtonWrap">
+                <button id="btn1" onclick="btnclick()">
+                    가보자고!!
+                </button>
+            </div>
+        </div>
+    </div>
+    <div>
+        <script>
+            var printcnt = 0;
+            let outlotto = [];
+            let arr1 = [];
+            let arr2 = [];
+            let arr3 = [];
+            let arr4 = [];
+            let arr5 = [];
+            let arr6 = [];
+            // 랜덤함수추출
+            function ranNum(min, max){
+                let lotto = [];
+                let i = 0;
+                while (i < max){
+                    let n = Math.floor(Math.random() * max) + min;
+                    if (! sameNum(n)) {
+                        lotto.push(n);
+                        i++;
+                    }
+                }
+                function sameNum (n) {
+                    return lotto.find((e) => (e === n));
+                }
+                return lotto;
+            }
+
+
+            function btnclick(){
+                // 범위틀리면 오류
+                // if(
+                //     document.getElementById('inputtxt1').value > document.getElementById('inputtxt1-1').value ||
+                //     document.getElementById('inputtxt2').value > document.getElementById('inputtxt2-1').value ||
+                //     document.getElementById('inputtxt3').value > document.getElementById('inputtxt3-1').value ||
+                //     document.getElementById('inputtxt4').value > document.getElementById('inputtxt4-1').value ||
+                //     document.getElementById('inputtxt5').value > document.getElementById('inputtxt5-1').value ||
+                //     document.getElementById('inputtxt6').value > document.getElementById('inputtxt6-1').value)
+                // {
+                //     alert("범위를 다시 설정해주세요!");
+                // }
+                // if(
+                //     document.getElementById('inputMaxNum').value < document.getElementById('inputtxt1-1').value ||
+                //     document.getElementById('inputMaxNum').value < document.getElementById('inputtxt2-1').value ||
+                //     document.getElementById('inputMaxNum').value < document.getElementById('inputtxt3-1').value ||
+                //     document.getElementById('inputMaxNum').value < document.getElementById('inputtxt4-1').value ||
+                //     document.getElementById('inputMaxNum').value < document.getElementById('inputtxt5-1').value ||
+                //     document.getElementById('inputMaxNum').value < document.getElementById('inputtxt6-1').value)
+                // {
+                //     alert("범위를 다시 설정해주세요@");
+                // }
+                
+                //init
+                if(printcnt == 0){
+                    //최대값 입력받기
+                    outlotto = ranNum(1, parseInt(document.getElementById('inputMaxNum').value));
+
+                    for(let i = 0; i <= document.getElementById('inputtxt1-1').value - document.getElementById('inputtxt1').value; i++){
+                    arr1.push(parseInt(document.getElementById('inputtxt1').value) + parseInt(i));
+                        }
+                    for(let i = 0; i <= document.getElementById('inputtxt2-1').value - document.getElementById('inputtxt2').value; i++){
+                        arr2.push(parseInt(document.getElementById('inputtxt2').value) + parseInt(i));
+                    }
+                    for(let i = 0; i <= document.getElementById('inputtxt3-1').value - document.getElementById('inputtxt3').value; i++){
+                        arr3.push(parseInt(document.getElementById('inputtxt3').value) + parseInt(i));
+                    }
+                    for(let i = 0; i <= document.getElementById('inputtxt4-1').value - document.getElementById('inputtxt4').value; i++){
+                        arr4.push(parseInt(document.getElementById('inputtxt4').value) + parseInt(i));
+                    }
+                    for(let i = 0; i <= document.getElementById('inputtxt5-1').value - document.getElementById('inputtxt5').value; i++){
+                        arr5.push(parseInt(document.getElementById('inputtxt5').value) + parseInt(i));
+                    }
+                    for(let i = 0; i <= document.getElementById('inputtxt6-1').value - document.getElementById('inputtxt6').value; i++){
+                        arr6.push(parseInt(document.getElementById('inputtxt6').value) + parseInt(i));
+                    }
+                }
+                // alert("test");
+                // alert(arr1[1]);
+                // alert(arr1.toString());
+                
+                for(let i = 0; i<arr1.length; i++){
+                    if(outlotto[printcnt] == arr1[i]){
+                        alert(parseInt(outlotto[printcnt]) + "  최고! 행운이 깃든 날이네요^^ 축하합니다. \n"  + "상품은 푸름이 인형^^");
+                    }
+                }
+                for(let i = 0; i<arr2.length; i++){
+                    if(outlotto[printcnt] == arr2[i]){
+                        alert(parseInt(outlotto[printcnt]) + "  최고! 행운이 깃든 날이네요^^ 축하합니다. \n"  + "상품은 푸름이 키링^^");
+                    }
+                }
+                for(let i = 0; i<arr3.length; i++){
+                    if(outlotto[printcnt] == arr3[i]){
+                        alert(parseInt(outlotto[printcnt]) + "  최고! 행운이 깃든 날이네요^^ 축하합니다. \n"  + "상품은 푸름이 피규어^^");
+                    }
+                }
+                for(let i = 0; i<arr4.length; i++){
+                    if(outlotto[printcnt] == arr4[i]){
+                        alert(parseInt(outlotto[printcnt]) + "  최고! 행운이 깃든 날이네요^^ 축하합니다. \n"  + "상품은 푸름이 그립톡^^");
+                    }
+                }
+                for(let i = 0; i<arr5.length; i++){
+                    if(outlotto[printcnt] == arr5[i]){
+                        alert(parseInt(outlotto[printcnt]) + "  최고! 행운이 깃든 날이네요^^ 축하합니다. \n"  + "상품은 푸름이 스티커^^");
+                    }
+                }
+                for(let i = 0; i<arr6.length; i++){
+                    if(outlotto[printcnt] == arr6[i]){
+                        alert(parseInt(outlotto[printcnt]) + "  꽝!!!!!!!!!!!");
+                    }
+                }
+                
+                printcnt++;
+                if(printcnt == document.getElementById('inputMaxNum').value){
+                    alert("다시 시작해주세요");
+                }
+            }
+            
+        </script>
+    </div>
+    
+</body>
+</html>
